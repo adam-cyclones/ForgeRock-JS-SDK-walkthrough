@@ -9,8 +9,7 @@ _Commits should follow the steps outlined:_
 3. DNS alias within /etc/hosts
 4. Uses a cloud platform of some kind
 5. Write Hello, World!
-6. Create a README that tracks your progress
-7. At each milestone, commit your progress and link the commit to the progress statement on the README
+6. At each milestone, commit your progress and link the commit to the progress statement on the README
 ### step 2: Create the most basic username-password SPA with the following requirements:
 1. With no JavaScript framework, just create the most basic HTML, JS and CSS SPA with no dependencies other than the Core JS SDK (no FRUI) and Twitter Bootstrap (TBS) or an equivalent for default styling
 2. Dependencies imported via old-school script and style tags; just use the single, built file from the SDK repo
