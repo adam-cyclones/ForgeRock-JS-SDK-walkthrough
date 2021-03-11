@@ -4,7 +4,7 @@ My experience building a variety of applications using ForgeRock's JavaScript SD
 ## Agenda
 _Commits should follow the steps outlined:_
 ### step 1: Create a personal project for learning. Create the project with the following requirements:
-1. A personal Github repo.
+1. A personal Github repo
 2. HTTPS with self-signed certs
 3. DNS alias within /etc/hosts
 4. Uses a cloud platform of some kind
@@ -25,7 +25,7 @@ _Commits should follow the steps outlined:_
 4. Using the logout button from the previous task, refactor to use FRUser to logout both session and OAuth tokens
 
 #### How to track progress
-A commit log kept bellow, should be updated using only the `update-readme-commits.sh` which will remove any risk of
+A commit log kept at the bottom of this page, should be updated using only the `update-readme-commits.sh` which will remove any risk of
 stale data or human error. 
 
 #### Commits style
@@ -36,7 +36,10 @@ step.1.1 commit relates to step 1 section 1 where I did X and Y for Z
 - Commits should always be written after asking yourself the question; WHY not WHAT
 
 ## Design
-My choices will be simple as possible, where I can I will remove complexity and add lightness
+My choices will be simple as possible, where I can I will remove complexity
+
+### DNS
+adams-sdk.app
 
 ### Styling
 This demo does not aim to provide a styled solution which you would then need to unpick, instead I have included in the 
