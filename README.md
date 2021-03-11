@@ -77,3 +77,4 @@ This demo does not aim to provide a styled solution which you would then need to
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/570efa7 step.1.3 HTTPS with self-signed certs
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/45b4ce0 step.2.1 styling added via cdn and classless css theme
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/aa6e3d3 step.2.2 pulling in SDK file file from local prebuilt js
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/df35daf step.2.3 The app renders a basic username-password form with default styling
