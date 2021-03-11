@@ -4,7 +4,7 @@ My experience building a variety of applications using ForgeRock's JavaScript SD
 ## Agenda
 _Commits should follow the steps outlined:_
 ### step 1: Create a personal project for learning. Create the project with the following requirements:
-1. A personal Github repo. It can be private or public, if private, invite me (Justin) to it
+1. A personal Github repo.
 2. HTTPS with self-signed certs
 3. DNS alias within /etc/hosts
 4. Uses a cloud platform of some kind
