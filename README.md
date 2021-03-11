@@ -45,6 +45,16 @@ Please add the following to your `/etc/hosts` file
 adam-sdk.app
 ```
 
+### Server
+Nothing to innstall, run
+```
+python serve.py
+```
+
+and navigate to:
+
+https://adam-sdk.app:8088/``
+
 ### Styling
 This demo does not aim to provide a styled solution which you would then need to unpick, instead I have included in the 
 `index.html` file, a cdn import for new.css a classless css framework, simply remove these lines to remove default styling.
