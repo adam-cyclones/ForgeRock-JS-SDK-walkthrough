@@ -76,6 +76,4 @@ This demo does not aim to provide a styled solution which you would then need to
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/c326e76 step.1.2 DNS alias within  for https cert
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/570efa7 step.1.3 HTTPS with self-signed certs
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/45b4ce0 step.2.1 styling added via cdn and classless css theme
-- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/518ff4c step.2.2 pulling in SDK file from Skypack CDN
-- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/642ccaa step.2.2 pulling in SDK file from Skypack CDN - squash me
-- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/dd40f14 step.2.2 pulling in SDK file file from local prebuilt - squash me
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/aa6e3d3 step.2.2 pulling in SDK file file from local prebuilt js
