@@ -75,3 +75,4 @@ This demo does not aim to provide a styled solution which you would then need to
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/e45e957 Initial commit
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/c326e76 step.1.2 DNS alias within  for https cert
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/570efa7 step.1.3 HTTPS with self-signed certs
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/45b4ce0 step.2.1 styling added via cdn and classless css theme
