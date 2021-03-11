@@ -4,4 +4,4 @@
  echo "$(cat README.md | grep -B 999999 'Commit Log')" > README.md
 
 # git log then ignore then format to md bullets
- echo "$(git log --oneline | grep --invert-match IGNORE | sed -e 's/^/- https:\/\/github.com\/adam-cyclones\/ForgeRock-JS-SDK-walkthrough\/commit\//')" >> README.md
+ echo "$(git log --oneline --reverse | grep --invert-match IGNORE | sed -e 's/^/- https:\/\/github.com\/adam-cyclones\/ForgeRock-JS-SDK-walkthrough\/commit\//')" >> README.md
