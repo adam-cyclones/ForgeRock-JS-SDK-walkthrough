@@ -45,13 +45,13 @@ Please add the following to your `/etc/hosts` file
 adam-sdk.app
 ```
 
-### Server
-Nothing to innstall, run
+### Local deployment
+No need to install anything, It's as easy as running:
 ```
 python serve.py
 ```
 
-and navigate to:
+then navigate to:
 
 https://adam-sdk.app:8088/``
 
@@ -64,5 +64,5 @@ This demo does not aim to provide a styled solution which you would then need to
 ```
 
 ## Commit Log
-c326e76 step.1.2 DNS alias within  for https cert
-e45e957 Initial commit
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/c326e76 step.1.2 DNS alias within  for https cert
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/e45e957 Initial commit
