@@ -53,7 +53,7 @@ python serve.py
 
 then navigate to:
 
-https://adam-sdk.app:8088/``
+https://adam-sdk.app:8088/
 
 ### Styling
 This demo does not aim to provide a styled solution which you would then need to unpick, instead I have included in the 
