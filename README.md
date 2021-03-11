@@ -5,8 +5,8 @@ My experience building a variety of applications using ForgeRock's JavaScript SD
 _Commits should follow the steps outlined:_
 ### step 1: Create a personal project for learning. Create the project with the following requirements:
 1. A personal Github repo
-2. HTTPS with self-signed certs
-3. DNS alias within /etc/hosts
+2. DNS alias within /etc/hosts
+3. HTTPS with self-signed certs
 4. Uses a cloud platform of some kind
 5. Write Hello, World!
 6. At each milestone, commit your progress and link the commit to the progress statement on the README
@@ -39,7 +39,11 @@ step.1.1 commit relates to step 1 section 1 where I did X and Y for Z
 My choices will be simple as possible, where I can I will remove complexity
 
 ### DNS
-adams-sdk.app
+Please add the following to your `/etc/hosts` file
+```
+# ForgeRock SDK Walkthrough 2021
+adam-sdk.app
+```
 
 ### Styling
 This demo does not aim to provide a styled solution which you would then need to unpick, instead I have included in the 
