@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>adam-sdk.app</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!--classless css-->
@@ -11,12 +11,31 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"/>
 
   <meta name="theme-color" content="#fafafa">
+
 </head>
 
 <body>
 
 <header>adam-sdk.app</header>
-<p>Hello world!</p>
+<main>
+  <p>Hello world! Why not login?</p>
+
+  <form id="form">
+    <fieldset>
+      <legend>Login</legend>
+      <div>
+        <label for="username">Username</label>
+        <input id="username" type="text"/>
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input id="password" type="password"/>
+      </div>
+      <hr/>
+      <button type="submit">Authenticate</button>
+    </fieldset>
+  </form>
+</main>
 
 <script type="text/javascript" src="./forgerock-sdk-2.2.0.min.js"></script>
 <script>
