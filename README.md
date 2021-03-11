@@ -46,7 +46,7 @@ adam-sdk.app
 ```
 
 ## Certs
-I have Used mkcert to generate certificates
+I have used mkcert to generate certificates
 ```
 mkcert adam-sdk.app 127.0.0.1
 ```
