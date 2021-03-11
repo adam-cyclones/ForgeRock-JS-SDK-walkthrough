@@ -45,6 +45,12 @@ Please add the following to your `/etc/hosts` file
 adam-sdk.app
 ```
 
+## Certs
+I have Used mkcert to generate certificates
+```
+mkcert adam-sdk.app 127.0.0.1
+```
+
 ### Local deployment
 No need to install anything, It's as easy as running:
 ```
