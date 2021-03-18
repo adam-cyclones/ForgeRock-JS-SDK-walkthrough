@@ -78,3 +78,4 @@ This demo does not aim to provide a styled solution which you would then need to
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/45b4ce0 step.2.1 styling added via cdn and classless css theme
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/aa6e3d3 step.2.2 pulling in SDK file file from local prebuilt js
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/df35daf step.2.3 The app renders a basic username-password form with default styling
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/f0e2673 step.2.4 Upon submission of the form, plain JS catches the form submission event and uses the value off of the event target to submit them with the SDK's FRAuth to AM. - github demo untested
