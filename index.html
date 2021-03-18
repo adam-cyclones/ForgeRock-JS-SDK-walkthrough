@@ -27,7 +27,7 @@
 
 <header>
   <p>adam-sdk.app</p>
-  <button type="button" class="toggle">Logout</button>
+  <button id="logoutBtn" type="button" class="toggle">Logout</button>
 </header>
 <main class="toggle hide">
   <p id="messages"></p>
@@ -130,6 +130,13 @@
             break;
         }
       }
+    });
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      forgerock.SessionManager.logout();
+      updateMessage('initial');
+      toggleableVisibility();
+      elForm.reset();
     });
   }
 
