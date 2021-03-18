@@ -20,16 +20,16 @@
 <main>
   <p>Hello world! Why not login?</p>
 
-  <form id="form">
+  <form id="form" novalidate>
     <fieldset>
       <legend>Login</legend>
       <div>
-        <label for="username">Username</label>
-        <input id="username" type="text"/>
+        <label for="username">*Username</label>
+        <input required id="username" type="text"/>
       </div>
       <div>
-        <label for="password">Password</label>
-        <input id="password" type="password"/>
+        <label for="password">*Password</label>
+        <input required id="password" type="password"/>
       </div>
       <hr/>
       <button type="submit">Authenticate</button>
@@ -39,7 +39,53 @@
 
 <script type="text/javascript" src="./forgerock-sdk-2.2.0.min.js"></script>
 <script>
-  console.log(forgerock)
+  const elForm = document.getElementById('form');
+  const { forgerock } = window;
+
+  if (forgerock && elForm) {
+    elForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (elForm.checkValidity()) {
+        const [elUsername, elPassword] = [...e.target.elements].filter((el) => el.id === 'username' || el.id === 'password');
+
+        // for demo hosted github page
+        const redirectUri = location.origin.includes('github') ?
+          'https://adam-cyclones.github.io/ForgeRock-JS-SDK-walkthrough/index.html' :
+          'https://adam-sdk.app:8088/_callback';
+
+        forgerock.Config.set({
+          clientId: 'AdamSDKAppClient',
+          redirectUri, // e.g. 'https://sdkapp.example.com:8443/_callback'
+          scope: 'openid profile me.read', // e.g. 'openid profile me.read'
+          serverConfig: {
+            baseUrl: 'https://openam-forgerock-adamcrockett.forgeblocks.com/am/', // e.g. 'https://openam.example.com:9443/openam/'
+            timeout: '9000' // 90000 or less
+          },
+          realmPath: 'alpha', // e.g. 'root'
+          tree: 'AdamSDKAppLogin', // e.g. 'Login'
+        });
+
+        /**
+         * @param previousStep *(optional)* The step object made previously or undefined
+         * */
+        const takeStep = async (previousStep) => await forgerock.FRAuth.next(previousStep);
+
+        // step to username
+        const stepWithUsername = await takeStep();
+        stepWithUsername
+          .getCallbacksOfType('NameCallback')[0]
+          .setName(elUsername.value);
+        // step to password
+        const stepWithPassword = await takeStep(stepWithUsername);
+        stepWithPassword
+          .getCallbacksOfType('PasswordCallback')[0]
+          .setPassword(elPassword.value);
+
+      }
+    });
+  }
+
 </script>
 
 </body>
