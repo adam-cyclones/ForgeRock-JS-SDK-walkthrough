@@ -9,6 +9,11 @@
   <!--classless css-->
   <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"/>
+  <style>
+    .hide {
+      display: none;
+    }
+  </style>
 
   <meta name="theme-color" content="#fafafa">
 
@@ -16,10 +21,12 @@
 
 <body>
 
-<header>adam-sdk.app</header>
-<main>
-  <p>Hello world! Why not login?</p>
-
+<header>
+  <p>adam-sdk.app</p>
+  <button type="button" class="toggle">Logout</button>
+</header>
+<main class="toggle hide">
+  <p id="messages"></p>
   <form id="form" novalidate>
     <fieldset>
       <legend>Login</legend>
@@ -42,6 +49,29 @@
   const elForm = document.getElementById('form');
   const { forgerock } = window;
 
+  // Handle messages
+  const messages = {
+    initial: "Hello world! Why not login?",
+    loginFailure: "😱 Your <b>username</b> or <b>password</b> does not match! please try again.",
+    loginSuccess: "🚀 Congratulations you have successfully logged in! Loading...",
+    generalError: 'Oops, something went wrong!'
+  }
+
+  const elMessages = document.getElementById('messages');
+  const updateMessage = (messagesKey) => elMessages.innerHTML = messages[messagesKey] || messages.generalError;
+
+  // dirty handle visibility
+  const toggleableVisibility = () => {
+    for(const toggleable of [...document.querySelectorAll('.toggle')]) {
+      toggleable.classList.contains('hide') ? toggleable.classList.remove('hide') : toggleable.classList.add('hide')
+    }
+  }
+
+  // Setup
+  toggleableVisibility();
+  updateMessage('initial');
+
+  // Handle form
   if (forgerock && elForm) {
     elForm.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -81,7 +111,20 @@
         stepWithPassword
           .getCallbacksOfType('PasswordCallback')[0]
           .setPassword(elPassword.value);
+        // step to end
+        const stepWithResult = await takeStep(stepWithPassword);
 
+        switch (stepWithResult.type) {
+          case "LoginSuccess":
+            updateMessage('loginFailure');
+            toggleableVisibility();
+            break;
+          case "LoginFailure":
+            updateMessage('loginFailure');
+            break;
+          default:
+            break;
+        }
       }
     });
   }
