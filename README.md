@@ -38,7 +38,7 @@ step.1.1 commit relates to step 1 section 1 where I did X and Y for Z
 - Commits should always be written after asking yourself the question; WHY not WHAT
 
 ## Design
-My choices will be simple as possible, where I can I will remove complexity
+My choices will be simple as possible, where I can I will remove complexity, I will not be including anything to install.
 
 ### DNS
 Please add the following to your `/etc/hosts` file
@@ -69,6 +69,15 @@ This demo does not aim to provide a styled solution which you would then need to
 ``` html
 <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+<style>
+    header {
+      display: flex;
+      justify-content: space-between;
+    }
+    .hide {
+      display: none;
+    }
+</style>
 ```
 
 ## Commit Log
