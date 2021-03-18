@@ -88,6 +88,5 @@ This demo does not aim to provide a styled solution which you would then need to
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/aa6e3d3 step.2.2 pulling in SDK file file from local prebuilt js
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/df35daf step.2.3 The app renders a basic username-password form with default styling
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/f0e2673 step.2.4 Upon submission of the form, plain JS catches the form submission event and uses the value off of the event target to submit them with the SDK's FRAuth to AM. - github demo untested
-- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/cc2a2b9 SKIP readme update
-- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/6672d03 step.2.5 Handles a success or failure of login, rendering some kind of basic message to user
-- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/b972fb5 step.2.6 & step.2.7 Once logged in, display a functional logout button that uses the SessionManager to logout the user - Once logged out, display the same login form from above
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/538c49a step.2.5 Handles a success or failure of login, rendering some kind of basic message to user
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/7f581ca step.2.6 & step.2.7 Once logged in, display a functional logout button that uses the SessionManager to logout the user - Once logged out, display the same login form from above
