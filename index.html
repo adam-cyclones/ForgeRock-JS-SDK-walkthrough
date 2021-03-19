@@ -29,23 +29,25 @@
   <p>adam-sdk.app</p>
   <button id="logoutBtn" type="button" class="toggle">Logout</button>
 </header>
-<main class="toggle hide">
+<main>
   <p id="messages"></p>
-  <form id="form" novalidate>
-    <fieldset>
-      <legend>Login</legend>
-      <div>
-        <label for="username">*Username</label>
-        <input required id="username" type="text"/>
-      </div>
-      <div>
-        <label for="password">*Password</label>
-        <input required id="password" type="password"/>
-      </div>
-      <hr/>
-      <button type="submit">Authenticate</button>
-    </fieldset>
-  </form>
+  <div class="toggle hide">
+    <form id="form" novalidate>
+      <fieldset>
+        <legend>Login</legend>
+        <div>
+          <label for="username">*Username</label>
+          <input required id="username" type="text"/>
+        </div>
+        <div>
+          <label for="password">*Password</label>
+          <input required id="password" type="password"/>
+        </div>
+        <hr/>
+        <button type="submit">Authenticate</button>
+      </fieldset>
+    </form>
+  </div>
 </main>
 
 <script type="text/javascript" src="./forgerock-sdk-2.2.0.min.js"></script>
@@ -57,7 +59,7 @@
   const messages = {
     initial: "Hello world! Why not login?",
     loginFailure: "😱 Your <b>username</b> or <b>password</b> does not match! please try again.",
-    loginSuccess: "🚀 Congratulations you have successfully logged in! Loading...",
+    loginSuccess: "🚀 Congratulations you have successfully",
     generalError: 'Oops, something went wrong!'
   }
 
@@ -120,7 +122,7 @@
 
         switch (stepWithResult.type) {
           case "LoginSuccess":
-            updateMessage('loginFailure');
+            updateMessage('loginSuccess');
             toggleableVisibility();
             break;
           case "LoginFailure":
