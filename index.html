@@ -77,6 +77,19 @@
   toggleableVisibility();
   updateMessage('initial');
 
+  const handleFinalResult = async (stepWithResult) => {
+    switch (stepWithResult.type) {
+      case "LoginSuccess":
+        const sessionToken = stepWithResult.getSessionToken();
+        await forgerock.TokenManager.getTokens({ forceRenew: true });
+        return null;
+      case "LoginFailure":
+        return null;
+      default:
+        return null;
+    }
+  }
+
   // Handle form
   if (forgerock && elForm) {
     elForm.addEventListener('submit', async (e) => {
@@ -106,30 +119,32 @@
          * @param previousStep *(optional)* The step object made previously or undefined
          * */
         const takeStep = async (previousStep) => await forgerock.FRAuth.next(previousStep);
+        let user;
 
-        // step to username
-        const stepWithUsername = await takeStep();
-        stepWithUsername
-          .getCallbacksOfType('NameCallback')[0]
-          .setName(elUsername.value);
-        // step to password
-        const stepWithPassword = await takeStep(stepWithUsername);
-        stepWithPassword
-          .getCallbacksOfType('PasswordCallback')[0]
-          .setPassword(elPassword.value);
-        // step to end
-        const stepWithResult = await takeStep(stepWithPassword);
+        // our tree is known and finite, so we can simply pick-out 'Step' vs 'loginSuccess' or 'loginFailure'
+        // step to username or final if we already have keys with OAuth
+        const stepOne = await takeStep();
+        if (stepOne.type === 'Step') {
+          stepOne
+            .getCallbacksOfType('NameCallback')[0]
+            .setName(elUsername.value);
+          // step to password
+          const stepTwo = await takeStep(stepOne);
+          stepTwo
+            .getCallbacksOfType('PasswordCallback')[0]
+            .setPassword(elPassword.value);
+          // step to end
+          const stepThree = await takeStep(stepTwo);
+          user = await handleFinalResult(stepThree);
+        } else {
+          user = await handleFinalResult(stepOne);
+        }
 
-        switch (stepWithResult.type) {
-          case "LoginSuccess":
-            updateMessage('loginSuccess');
-            toggleableVisibility();
-            break;
-          case "LoginFailure":
-            updateMessage('loginFailure');
-            break;
-          default:
-            break;
+        if (user) {
+          updateMessage('loginSuccess');
+          toggleableVisibility();
+        } else {
+          updateMessage('loginFailure');
         }
       }
     });
