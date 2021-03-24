@@ -82,7 +82,7 @@
       case "LoginSuccess":
         stepWithResult.getSessionToken();
         await forgerock.TokenManager.getTokens({ forceRenew: true });
-        return null;
+        return await forgerock.UserManager.getCurrentUser();
       case "LoginFailure":
         return null;
       default:
