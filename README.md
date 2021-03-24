@@ -94,3 +94,4 @@ This demo does not aim to provide a styled solution which you would then need to
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/a391143 update readme
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/ff613c5 step.3.2 After getting tokens, use the SDK's getUserInfo to call the userinfo endpoint
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/81a4842 step.3.3 Render user info to screen
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/dd3aa52 step.3.4 Using the logout button from the previous task, refactor to use FRUser to logout both session and OAuth tokens
