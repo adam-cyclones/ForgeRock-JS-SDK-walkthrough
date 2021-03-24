@@ -167,7 +167,7 @@
     });
 
     document.getElementById('logoutBtn').addEventListener('click', () => {
-      forgerock.SessionManager.logout();
+      forgerock.FRUser.logout();
       updateMessage('initial');
       toggleableVisibility();
       elForm.reset();
