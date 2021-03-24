@@ -48,6 +48,12 @@
       </fieldset>
     </form>
   </div>
+  <div class="toggle">
+    <section>
+      <p id="given-name"></p>
+      <p id="family-name"></p>
+    </section>
+  </div>
 </main>
 
 <script type="text/javascript" src="./forgerock-sdk-2.2.0.min.js"></script>
@@ -71,6 +77,15 @@
     for(const toggleable of [...document.querySelectorAll('.toggle')]) {
       toggleable.classList.contains('hide') ? toggleable.classList.remove('hide') : toggleable.classList.add('hide')
     }
+  }
+
+  const renderUser = ({
+    family_name,
+    given_name,
+  }) => {
+    const [givenNameText, familyNameText] = document.querySelectorAll('#given-name, #family-name');
+    givenNameText.innerText = `given name: ${given_name}`;
+    familyNameText.innerText = `family name: ${family_name}`;
   }
 
   // Setup
@@ -143,6 +158,8 @@
         if (user) {
           updateMessage('loginSuccess');
           toggleableVisibility();
+          renderUser(user);
+          console.log(user)
         } else {
           updateMessage('generalError');
         }
