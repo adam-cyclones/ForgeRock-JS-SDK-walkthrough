@@ -77,10 +77,10 @@
   toggleableVisibility();
   updateMessage('initial');
 
-  const handleFinalResult = async (stepWithResult) => {
+  const getUser = async (stepWithResult) => {
     switch (stepWithResult.type) {
       case "LoginSuccess":
-        const sessionToken = stepWithResult.getSessionToken();
+        stepWithResult.getSessionToken();
         await forgerock.TokenManager.getTokens({ forceRenew: true });
         return null;
       case "LoginFailure":
@@ -101,7 +101,7 @@
         // for demo hosted github page
         const redirectUri = location.origin.includes('github') ?
           'https://adam-cyclones.github.io/ForgeRock-JS-SDK-walkthrough/index.html' :
-          'https://adam-sdk.app:8088/_callback';
+          'https://adam-sdk.app:8088';
 
         forgerock.Config.set({
           clientId: 'AdamSDKAppClient',
@@ -135,16 +135,16 @@
             .setPassword(elPassword.value);
           // step to end
           const stepThree = await takeStep(stepTwo);
-          user = await handleFinalResult(stepThree);
+          user = await getUser(stepThree);
         } else {
-          user = await handleFinalResult(stepOne);
+          user = await getUser(stepOne);
         }
 
         if (user) {
           updateMessage('loginSuccess');
           toggleableVisibility();
         } else {
-          updateMessage('loginFailure');
+          updateMessage('generalError');
         }
       }
     });
