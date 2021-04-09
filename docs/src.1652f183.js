@@ -18,4 +18,4 @@ var t=arguments[3];Object.defineProperty(exports,"__esModule",{value:!0}),export
 },{"./mixins/ForgeRockSDK":"sP8X","./components/AuthStateHeader":"atjk","./components/AuthForm":"fbRM"}],"Focm":[function(require,module,exports) {
 "use strict";require("regenerator-runtime/runtime");var e=r(require("vue")),u=r(require("./App.vue"));function r(e){return e&&e.__esModule?e:{default:e}}e.default.config.devtools=!0,new e.default(u.default).$mount("#app");
 },{"regenerator-runtime/runtime":"QVnC","vue":"QPfz","./App.vue":"Js2s"}]},{},["Focm"], null)
-//# sourceMappingURL=/src.1652f183.js.map
+//# sourceMappingURL=/ForgeRock-JS-SDK-walkthrough/src.1652f183.js.map
