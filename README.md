@@ -118,3 +118,8 @@ This demo does not aim to provide a styled solution which you would then need to
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/51632a1 task.1.step.3.2 After getting tokens, use the SDK's getUserInfo to call the userinfo endpoint
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/f19579c task.1.step.3.3 Render user info to screen
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/a9f16f5 task.1.step.3.4 Using the logout button from the previous task, refactor to use FRUser to logout both session and OAuth tokens
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/75092c3 task.2.1.1 choose vue and converting project by creating structure
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/3435582 task.2.step.1.2 added parcel bundler and its required auto added deps because we are using vue, scripts are setup, but header for allowed orgin cors needs adding to devserver, see serve.py
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/e235af9 task.2.step.1.1 form as-is before I make it dynamic, I have hooked it up so that AppRoot handles logic as it also has the plugin and control over conditional rendering
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/ebb3a35 task.2.step.1.1 App is handling form submition and using pulled in mixin ForgeRockSDK.js
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/1982fde task.2.step.1.1 To keep this code idiomatic Vue, all logic is provided by a mixin and injected at the level of the parent of components which use it, AKA the root app, the logic borrows from the branch 'exploring-tree-based-ui'
