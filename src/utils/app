@@ -1,0 +1,114 @@
+import messages from "./utils/messages.js";
+
+
+import('https://cdn.skypack.dev/@forgerock/javascript-sdk').then(forgerock => {
+
+    const elForm = document.getElementById('form');
+
+    console.log(messages)
+
+    const elMessages = document.getElementById('messages');
+    const updateMessage = (messagesKey) => elMessages.innerHTML = messages[messagesKey] || messages.generalError;
+
+    // dirty handle visibility
+    const toggleableVisibility = () => {
+        for (const toggleable of [...document.querySelectorAll('.toggle')]) {
+            toggleable.classList.contains('hide') ? toggleable.classList.remove('hide') : toggleable.classList.add('hide')
+        }
+    }
+
+    const renderUser = ({
+        family_name,
+        given_name,
+    }) => {
+        const [givenNameText, familyNameText] = document.querySelectorAll('#given-name, #family-name');
+        givenNameText.innerText = `given name: ${given_name}`;
+        familyNameText.innerText = `family name: ${family_name}`;
+    }
+
+    // Setup
+    toggleableVisibility();
+    updateMessage('initial');
+
+    const getUser = async (stepWithResult) => {
+        switch (stepWithResult.type) {
+            case "LoginSuccess":
+                stepWithResult.getSessionToken();
+                await forgerock.TokenManager.getTokens({ forceRenew: true });
+                return await forgerock.UserManager.getCurrentUser();
+            case "LoginFailure":
+                return null;
+            default:
+                return null;
+        }
+    }
+
+    // Handle form
+    if (forgerock && elForm) {
+        elForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (elForm.checkValidity()) {
+                const [elUsername, elPassword] = [...e.target.elements].filter((el) => el.id === 'username' || el.id === 'password');
+
+                // for demo hosted github page
+                const redirectUri = location.origin.includes('github') ?
+                    'https://adam-cyclones.github.io/ForgeRock-JS-SDK-walkthrough/index.html' :
+                    'https://adam-sdk.app:8088';
+
+                forgerock.Config.set({
+                    clientId: 'AdamSDKAppClient',
+                    redirectUri, // e.g. 'https://sdkapp.example.com:8443/_callback'
+                    scope: 'openid profile me.read', // e.g. 'openid profile me.read'
+                    serverConfig: {
+                        baseUrl: 'https://openam-forgerock-adamcrockett.forgeblocks.com/am/', // e.g. 'https://openam.example.com:9443/openam/'
+                        timeout: '9000' // 90000 or less
+                    },
+                    realmPath: 'alpha', // e.g. 'root'
+                    tree: 'AdamSDKAppLogin', // e.g. 'Login'
+                });
+
+                /**
+                 * @param previousStep *(optional)* The step object made previously or undefined
+                 * */
+                const takeStep = async (previousStep) => await forgerock.FRAuth.next(previousStep);
+                let user;
+
+                // our tree is known and finite, so we can simply pick-out 'Step' vs 'loginSuccess' or 'loginFailure'
+                // step to username or final if we already have keys with OAuth
+                const stepOne = await takeStep();
+                if (stepOne.type === 'Step') {
+                    stepOne
+                        .getCallbacksOfType('NameCallback')[0]
+                        .setName(elUsername.value);
+                    // step to password
+                    const stepTwo = await takeStep(stepOne);
+                    stepTwo
+                        .getCallbacksOfType('PasswordCallback')[0]
+                        .setPassword(elPassword.value);
+                    // step to end
+                    const stepThree = await takeStep(stepTwo);
+                    user = await getUser(stepThree);
+                } else {
+                    user = await getUser(stepOne);
+                }
+
+                if (user) {
+                    updateMessage('loginSuccess');
+                    toggleableVisibility();
+                    renderUser(user);
+                    console.log(user)
+                } else {
+                    updateMessage('generalError');
+                }
+            }
+        });
+
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            forgerock.FRUser.logout();
+            updateMessage('initial');
+            toggleableVisibility();
+            elForm.reset();
+        });
+    }
+});
