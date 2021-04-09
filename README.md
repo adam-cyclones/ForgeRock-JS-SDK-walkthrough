@@ -106,16 +106,15 @@ This demo does not aim to provide a styled solution which you would then need to
 
 ## Commit Log
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/e45e957 Initial commit
-- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/c326e76 step.1.2 DNS alias within  for https cert
-- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/570efa7 step.1.3 HTTPS with self-signed certs
-- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/45bce0 step.2.1 styling added via cdn and classless css theme
-- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/aa6e3d3 step.2.2 pulling in SDK file file from local prebuilt js
-- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/df35daf step.2.3 The app renders a basic username-password form with default styling
-- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/f0e2673 step.2.4 Upon submission of the form, plain JS catches the form submission event and uses the value off of the event target to submit them with the SDK's FRAuth to AM. - github demo untested
-- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/538c49a step.2.5 Handles a success or failure of login, rendering some kind of basic message to user
-- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/7f581ca step.2.6 & step.2.7 Once logged in, display a functional logout button that uses the SessionManager to logout the user - Once logged out, display the same login form from above
-- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/d3f7e47 step.3.1 After a successful login, use the SDK's getTokens to call an OAuth client to get access token and id token
-- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/a391143 update readme
-- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/ff613c5 step.3.2 After getting tokens, use the SDK's getUserInfo to call the userinfo endpoint
-- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/81a4842 step.3.3 Render user info to screen
-- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/dd3aa52 step.3.4 Using the logout button from the previous task, refactor to use FRUser to logout both session and OAuth tokens
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/36f9fba task.1.step.1.2 DNS alias within  for https cert
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/42840db task.1.step.1.3 HTTPS with self-signed certs
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/6d061e5 task.1.step.2.1 styling added via cdn and classless css theme
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/ede5521 task.1.step.2.2 pulling in SDK file file from local prebuilt js
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/8d85519 task.1.step.2.3 The app renders a basic username-password form with default styling
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/23c9375 task.1.step.2.4 Upon submission of the form, plain JS catches the form submission event and uses the value off of the event target to submit them with the SDK's FRAuth to AM. - github demo untested
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/69c0796 task.1.step.2.5 handles a success or failure of login, rendering some kind of basic message to user
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/caa3637 task.1.step.2.6 & step.2.7 Once logged in, display a functional logout button that uses the SessionManager to logout the user - Once logged out, display the same login form from above
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/ee377c9 task.1.step.3.1 After a successful login, use the SDK's getTokens to call an OAuth client to get access token and id token
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/51632a1 task.1.step.3.2 After getting tokens, use the SDK's getUserInfo to call the userinfo endpoint
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/f19579c task.1.step.3.3 Render user info to screen
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/a9f16f5 task.1.step.3.4 Using the logout button from the previous task, refactor to use FRUser to logout both session and OAuth tokens
