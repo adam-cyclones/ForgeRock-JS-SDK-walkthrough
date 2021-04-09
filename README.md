@@ -1,7 +1,7 @@
 # JavaScript SDK walk-through
 This repository is my experience building a variety of applications using ForgeRock's JavaScript SDK for easier authentication and authorization.
 
-[Live Demo](https://adam-cyclones.github.io/ForgeRock-JS-SDK-walkthrough/index.html)
+[Live Demo](https://adam-cyclones.github.io/ForgeRock-JS-SDK-walkthrough/)
 
 ## Agenda
 _Commits should follow the steps outlined:_
