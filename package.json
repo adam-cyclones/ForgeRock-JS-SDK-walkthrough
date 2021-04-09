@@ -1,0 +1,25 @@
+{
+  "name": "ForgeRock-JS-SDK-walkthrough",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough.git",
+  "author": "Adam Crockett <adam.crockett@forgerock.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^3.2.0",
+    "cssnano": "^4.1.11",
+    "parcel-bundler": "1.12.5",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "scripts": {
+    "dev": "parcel src/index.html --port 8088  --cert adam-sdk.app+1.pem --key adam-sdk.app+1-key.pem",
+    "build": "parcel build src/index.html -d docs --public-url /ForgeRock-JS-SDK-walkthrough/"
+  },
+  "dependencies": {
+    "@forgerock/javascript-sdk": "^2.2.0",
+    "regenerator-runtime": "^0.13.7",
+    "utils": "^0.3.1",
+    "vue": "^2.6.12",
+    "vue-hot-reload-api": "^2.3.4"
+  }
+}
