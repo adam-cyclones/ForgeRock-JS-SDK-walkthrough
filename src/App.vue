@@ -1,18 +1,15 @@
 
 <template>
     <div>
-        <AuthStateHeader :authenticated='authenticated'/>
+        <auth-state-header :authenticated='frAuthenticated' ></auth-state-header>
         <main>
             <p id="messages"></p>
-            <div class="toggle hide">
-                <AuthForm/>
-            </div>
-            <div class="toggle">
+            <auth-form @submit="handleSubmit" ></auth-form>
+            
             <section>
                 <p id="given-name"></p>
                 <p id="family-name"></p>
             </section>
-            </div>
         </main>
     </div>
 </template>
@@ -30,6 +27,14 @@ export default {
     components: {
         AuthStateHeader,
         AuthForm
+    },
+    created() {
+        this.frRender();
+    },
+    methods: {
+        handleSubmit() {
+            this.frAuthenticate();
+        }
     }
 }
 </script>
