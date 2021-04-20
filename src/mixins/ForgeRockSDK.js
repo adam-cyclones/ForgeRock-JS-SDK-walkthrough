@@ -6,8 +6,7 @@ export default {
     data() {
         return {
             frAuthenticated: false,
-            frTreeContext: null,
-            frTreeUIData: []
+            frTreeContext: this._treeWalker(),
         }
     },
     created() {
