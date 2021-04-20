@@ -1,4 +1,6 @@
 import * as forgerock from "@forgerock/javascript-sdk";
+import NameCallback from '../components/callbacks/NameCallback.vue';
+import PasswordCallback from '../components/callbacks/PasswordCallback.vue';
 
 export default {
     data() {
