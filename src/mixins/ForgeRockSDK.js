@@ -60,6 +60,9 @@ export default {
                 }
             }
         },
+        /**
+         * @description handles populating callback data
+         */
         async frAuthenticate() {
             for await (const stage of this._treeWalker()) {
                 if (stage.type === 'LoginFailure' || stage.type === 'LoginSuccess') {
