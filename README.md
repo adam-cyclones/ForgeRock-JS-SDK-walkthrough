@@ -123,3 +123,9 @@ This demo does not aim to provide a styled solution which you would then need to
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/e235af9 task.2.step.1.1 form as-is before I make it dynamic, I have hooked it up so that AppRoot handles logic as it also has the plugin and control over conditional rendering
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/ebb3a35 task.2.step.1.1 App is handling form submition and using pulled in mixin ForgeRockSDK.js
 - https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/1982fde task.2.step.1.1 To keep this code idiomatic Vue, all logic is provided by a mixin and injected at the level of the parent of components which use it, AKA the root app, the logic borrows from the branch 'exploring-tree-based-ui'
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/9c459f6 task.2.step.5.6
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/f889d7a task.2.step.5.6 components which represent the callbacks we are handling
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/421448e task.2.step.5.6 components imported at mixin level to be mapped to data and rendered upstream later on
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/5d388ff task.2.step.5.5 call frAuthNext before rendering the form
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/09613fa task.2.step.5.6 add the payload data to an array for rendering, each item in the array contains the component it should render in the form as well as the data to make that component work, we call frAuth.next to get this data and only handle this if at a Step and callbacks should be rendered
+- https://github.com/adam-cyclones/ForgeRock-JS-SDK-walkthrough/commit/12fa2e8 task.2.step.5.6 pass callbacks and thier components back to the component using the mixin
