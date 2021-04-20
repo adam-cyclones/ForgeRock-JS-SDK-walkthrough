@@ -4,7 +4,7 @@
         <auth-state-header :authenticated='frAuthenticated' ></auth-state-header>
         <main>
             <p id="messages"></p>
-            <auth-form @submit="handleSubmit" ></auth-form>
+            <auth-form @next='handleNext' @submit="frAuthenticate" :frTreeUIData="frTreeUIData"></auth-form>
             
             <section>
                 <p id="given-name"></p>
