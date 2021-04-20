@@ -28,12 +28,12 @@ export default {
         AuthStateHeader,
         AuthForm
     },
-    created() {
+    mounted() {
         this.frRender();
     },
     methods: {
-        handleSubmit() {
-            this.frAuthenticate();
+        handleNext() {
+            this.frRender();
         }
     }
 }
