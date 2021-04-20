@@ -51,11 +51,27 @@ export default {
          * @description renders the current stage within this tree if it has callbacks to render
          */
         async frRender() {
-            for await (const stage of this._treeWalker()) {
-                if (stage.type !== 'LoginFailure' || stage.type !== 'LoginSuccess') {
+            const stage = (await this.frTreeContext.next()).value;
+
+            if (stage.type !== 'LoginFailure' || stage.type !== 'LoginSuccess' && stage.callbacks) {
                     for (const { payload } of stage.callbacks) {
-                        this.frTreeUIData = [...this.frTreeUIData, payload]
+                    const uiData = {}
+                    uiData.payload = payload;
+                    uiData.component = null;
+
+                    // assign known callbacks to render thier respective Vue Component
+                    switch (payload.type) {
+                        case "NameCallback":
+                            uiData.component = NameCallback;
+                            break;
+                        case "PasswordCallback":
+                            uiData.component = PasswordCallback;
+                            break;
+                        default:
+                            console.warn(`unhandled callback, cannot render ${payload.type}`)
+                            break;
                     }
+                    this.frTreeUIData = [...this.frTreeUIData, uiData];
                 }
             }
         },
