@@ -37,6 +37,7 @@ export default {
         },
         /**
          * @private
+         * @description Walks the tree, call next to continue from last itteration
         */
         async * _treeWalker() {
             let prevStage = undefined;
@@ -47,6 +48,9 @@ export default {
             }
             return stage;
         },
+        /**
+         * @description renders the current stage within this tree if it has callbacks to render
+         */
         async frRender() {
             for await (const stage of this._treeWalker()) {
                 if (stage.type !== 'LoginFailure' || stage.type !== 'LoginSuccess') {
